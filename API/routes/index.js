@@ -10,4 +10,5 @@ module.exports = router;
 
 router.post('/pruebas',(req,res)=>{
     console.log(req.body);
+    res.send(req.body);
 })
