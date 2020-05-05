@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const peticionController = require('../controllers/peticionControllers');
 
 router.get('/',(req,res)=>{
     console.log("Hola,probando");
@@ -13,3 +13,11 @@ router.post('/pruebas',(req,res)=>{
     
     res.send(req.body);
 })
+
+router.post('/peticiones',
+    peticionController.nuevaPeticion
+)
+
+router.get('/peticiones',
+    peticionController.obtenerPeticiones
+)
