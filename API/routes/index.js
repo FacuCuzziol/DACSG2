@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const peticionController = require('../controllers/peticionControllers');
+const loginController = require('../controllers/loginController')
 
 router.get('/',(req,res)=>{
     console.log("Hola,probando");
@@ -21,4 +22,14 @@ router.post('/peticiones',
 router.get('/peticiones',
     peticionController.obtenerPeticiones
 )
+
+router.post('/login',
+loginController.logUser
+)
+
+router.post('/register',
+loginController.registerUser
+)
+
+
 module.exports = router;
