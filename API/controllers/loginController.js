@@ -27,8 +27,29 @@ exports.logUser = async(req,res,next) =>{
 exports.registerUser = async(req,res,next) =>{
     const newUser = new User(req.body);
     try {
-        await newUser.save();
-        res.json({mensaje:"Registro exitoso"});
+        const posiblesDuplicados= await User.find({
+
+            User:{user: req.body.User.user,phash:req.body.User.phash}
+            
+            });
+            if(!usuarios.length)
+            {
+
+                //el usuario no esta previamente registrado
+                try{
+                    await newUser.save();
+                    res.json({mensaje:"Registro exitoso"});
+                }
+                catch(error)
+                {
+                    console.log(error);
+                    next();
+                }
+            }
+            else
+            {
+                res.json({mensaje:"El usuario ya existe"});
+            }
     } catch (error) {
         console.log(error);
         next();
