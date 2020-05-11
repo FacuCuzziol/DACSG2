@@ -32,7 +32,7 @@ exports.registerUser = async(req,res,next) =>{
             user: req.body.user,phash:req.body.phash}
             
             );
-            if(!usuarios.length)
+            if(!posiblesDuplicados.length)
             {
 
                 //el usuario no esta previamente registrado
