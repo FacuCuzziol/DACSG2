@@ -5,10 +5,10 @@ exports.logUser = async(req,res,next) =>{
     const log = new User(req.body);
 
     try {
-        console.log(req.body.User.user);
-        console.log(req.body.User.phash);
+        console.log(req.body.user);
+        console.log(req.body.phash);
         const usuarios = await User.find({
-            User:{ user: req.body.User.user, phash: req.body.User.phash }
+             user: log.user, phash: log.phash 
         });
         console.log(usuarios);
         if(!usuarios.length){
@@ -29,9 +29,9 @@ exports.registerUser = async(req,res,next) =>{
     try {
         const posiblesDuplicados= await User.find({
 
-            User:{user: req.body.User.user,phash:req.body.User.phash}
+            user: req.body.user,phash:req.body.phash}
             
-            });
+            );
             if(!usuarios.length)
             {
 
