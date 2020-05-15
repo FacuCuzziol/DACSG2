@@ -31,5 +31,14 @@ router.post('/register',
 loginController.registerUser
 )
 
+router.post('CentrosHospitalarios',
+centrosHospitalariosController.registerCentro
+)
+
+router.get('CentrosHospitalarios',
+centrosHospitalariosController.getCentros
+)
+
+
 
 module.exports = router;

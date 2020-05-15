@@ -2,32 +2,7 @@ const mongoose = require("mongoose");
 
 const Ministerio = new mongoose.Schema({
 
-    CentrosHospitalarios:{
-        idCentro:{
-            type:Number,
-            required:true
-        },
-        nombre:{
-            type:String,
-            required:true
-        },
-        provincia:{
-            type:String,
-            required:true
-        },
-        ciudad:{
-            type:String,
-            required:true
-        },
-        direccion:{
-            type:String,
-            required:true
-        },
-        tipo:{
-            type:String,
-            required:true
-        }
-    },
+    
     Envios:{
         idCentro:{
             type:Number,
