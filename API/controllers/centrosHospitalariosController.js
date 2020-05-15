@@ -3,6 +3,7 @@ const CentrosHospitalario = require('../models/CentrosHospitalarios');
 exports.registerCentro = async(req,res,next) =>{
     const nuevoCentro = new CentrosHospitalario(req.body);
     try {
+        console.log(req.body);
         await nuevoCentro.save();
         res.json({mensaje:req.body});
     } catch (error) {

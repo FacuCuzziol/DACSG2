@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const CentrosHospitalarios = new mongoose.Schema({
-    CentrosHospitalarios:{
+   
         idCentro:{
             type:Number,
             required:true
@@ -26,7 +26,7 @@ const CentrosHospitalarios = new mongoose.Schema({
             type:String,
             required:true
         }
-    }
+    
 
 });
 

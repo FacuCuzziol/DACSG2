@@ -6,6 +6,7 @@ const {MONGOURI} = require('./keys');
 const sls = require('serverless-http');
 require('./models/Ministerio');
 require('./models/Peticion');
+require('./models/CentrosHospitalarios')
 
 app.use(express.json());
 app.use(require('./routes/index'));
