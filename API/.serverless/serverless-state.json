@@ -158,7 +158,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-aws-nodejs/dev/1589161027930-2020-05-11T01:37:07.930Z/serverless-aws-nodejs.zip"
+                "S3Key": "serverless/serverless-aws-nodejs/dev/1589564833922-2020-05-15T17:47:13.922Z/serverless-aws-nodejs.zip"
               },
               "FunctionName": "serverless-aws-nodejs-dev-app",
               "Handler": "index.server",
@@ -177,14 +177,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersionhIMSljUR7hZi7xOr100DetSKxUg74igJ0ORgZ1zQuk": {
+          "AppLambdaVersionDJBF8KOLU3C2FiAazFoEERXftqZraxHmJK3pJ9fU1k": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "4zu5b5qtg40RWCHgIjP0MJBY6N+sMqp4W2dQAiL64EY="
+              "CodeSha256": "Fx+aT0pBoZ776iZZ13TnwjQ1cGZYXcb7H8/hTayXecI="
             }
           },
           "ApiGatewayRestApi": {
@@ -274,6 +274,21 @@
               }
             }
           },
+          "ApiGatewayResourceCentroshospitalarios": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "CentrosHospitalarios",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
           "ApiGatewayMethodOptions": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -306,7 +321,7 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,GET,HEAD,PATCH,POST,PUT'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
@@ -354,7 +369,7 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,GET,HEAD,PATCH,POST,PUT'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
@@ -399,7 +414,7 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
@@ -444,7 +459,7 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
@@ -489,7 +504,7 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
@@ -534,13 +549,58 @@
                       "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
                     },
                     "ResponseTemplates": {
-                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
                     }
                   }
                 ]
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceRegister"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodCentroshospitalariosOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCentroshospitalarios"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -851,7 +911,93 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1589160937938": {
+          "ApiGatewayMethodCentroshospitalariosPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCentroshospitalarios"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "AppLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodCentroshospitalariosGet": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "GET",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCentroshospitalarios"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "AppLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayDeployment1589564811123": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -866,13 +1012,16 @@
               "ApiGatewayMethodPeticionesOptions",
               "ApiGatewayMethodLoginOptions",
               "ApiGatewayMethodRegisterOptions",
+              "ApiGatewayMethodCentroshospitalariosOptions",
               "ApiGatewayMethodAny",
               "ApiGatewayMethodProxyVarAny",
               "ApiGatewayMethodPruebasPost",
               "ApiGatewayMethodPeticionesPost",
               "ApiGatewayMethodPeticionesGet",
               "ApiGatewayMethodLoginPost",
-              "ApiGatewayMethodRegisterPost"
+              "ApiGatewayMethodRegisterPost",
+              "ApiGatewayMethodCentroshospitalariosPost",
+              "ApiGatewayMethodCentroshospitalariosGet"
             ]
           },
           "AppLambdaPermissionApiGateway": {
@@ -922,7 +1071,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionhIMSljUR7hZi7xOr100DetSKxUg74igJ0ORgZ1zQuk"
+              "Ref": "AppLambdaVersionDJBF8KOLU3C2FiAazFoEERXftqZraxHmJK3pJ9fU1k"
             }
           },
           "ServiceEndpoint": {
@@ -1205,6 +1354,58 @@
               },
               "integration": "AWS_PROXY"
             }
+          },
+          {
+            "http": {
+              "path": "CentrosHospitalarios",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
+          },
+          {
+            "http": {
+              "path": "CentrosHospitalarios",
+              "method": "get",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "GET"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "integration": "AWS_PROXY"
+            }
           }
         ],
         "name": "serverless-aws-nodejs-dev-app",
@@ -1213,16 +1414,16 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionhIMSljUR7hZi7xOr100DetSKxUg74igJ0ORgZ1zQuk"
+        "versionLogicalId": "AppLambdaVersionDJBF8KOLU3C2FiAazFoEERXftqZraxHmJK3pJ9fU1k"
       }
     },
     "serviceFilename": "serverless.yml",
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/home/ale/Documents/Universidad/NotasTemporalesCS/DACSG2/API/.serverless/serverless-aws-nodejs.zip"
+    "artifact": "/home/facu/Desktop/DACSG2-A/API/.serverless/serverless-aws-nodejs.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-aws-nodejs/dev/1589161027930-2020-05-11T01:37:07.930Z",
+    "artifactDirectoryName": "serverless/serverless-aws-nodejs/dev/1589564833922-2020-05-15T17:47:13.922Z",
     "artifact": "serverless-aws-nodejs.zip"
   }
 }

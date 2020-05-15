@@ -36,3 +36,11 @@ functions:
           path: /register
           method: POST
           cors: true
+      - http:
+          path: /CentrosHospitalarios
+          method: POST
+          cors: true
+      - http:
+          path: /CentrosHospitalarios
+          method: GET
+          cors: true
